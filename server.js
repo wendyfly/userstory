@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/public')); // any file (css, html, js) will
 var api = require('./app/routes/api')(app, express); // we need to put app and express here because we use app, express when export api or they will be treated as local variable
 app.use('/api', api); // '/api' is the prefix of api, use to test
 
-app.get('*', function(req, res) { // * means any route you go to, response this file
+app.get('*', function(req, res) { // * means any route you go to, response this file.So no matter what URL, it goes to same page
     res.sendFile(__dirname + '/public/app/view/index.html');
 });
 

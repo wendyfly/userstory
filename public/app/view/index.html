@@ -2,19 +2,33 @@
 <html ng-app = "MyApp">
 <head lang="en">
     <meta charset="UTF-8">
+    <base href = '/'>
     <title>
         User Story
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <script type="text/javascript" src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.min.js"></script>
+    <!-- Services -->
+    <script type="text/javascript" src = "app/services/authService.js"></script>
+    <!-- Controllers -->
+    <script type="text/javascript" src = "app/controllers/mainController.js"></script>
 
+    <script type="text/javascript" src = "app/app.routes.js"></script>
     <script type="text/javascript" src = "app/app.js"></script>
 
 </head>
 <body>
-
+<!--
 <h1> Hello !</h1>
-{{ 2 + 2}}
+{{ 2 + 2}}-->
+
+<!--add container-->
+<main class="container">
+    <div ng-view></div>
+
+</main>
+
 </body>
 </html>
