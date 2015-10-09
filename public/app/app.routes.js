@@ -8,6 +8,9 @@ angular.module('appRoutes',['ngRoute'])
         .when('/login', {
             templateUrl: 'app/view/pages/login.html'
         })
+        .when('/signup',{
+            templateUrl: 'app/view/pages/signup.html'
+        })
 
-    $locationProvider.html5Mode(true);
-})  // will config ur current web applicaiton
+    $locationProvider.html5Mode(true); // configure how application link path to storage
+})  // will config ur current web application

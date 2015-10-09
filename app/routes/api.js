@@ -27,6 +27,7 @@ module.exports = function(app, express) {
             username: req.body.username,
             password: req.body.password
         });
+        var token = createToken(user);
         console.log("body is " + req.body);
         console.log("name is " + req.body.name);
 
@@ -36,7 +37,11 @@ module.exports = function(app, express) {
                 return;
             }
 
-            res.json({message: 'user has been created'});
+            res.json({
+            success: true,
+            message: "user has been created",
+            token: token
+            });
         });
     });
     api.get('/users', function(req, res) {
@@ -52,7 +57,7 @@ module.exports = function(app, express) {
     api.post('/login', function(req, res) {
             User.findOne({    // find specific user object
                 username: req.body.username
-            }).select('password').exec(function(err, user) {
+            }).select('name username password').exec(function(err, user) {
                 if(err) throw err;
                 if(!user) {
                     res.send({message: "User doesn't exist"})
